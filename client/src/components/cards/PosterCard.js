@@ -50,7 +50,8 @@ function PosterCard({ movie }) {
         className="overlay d-flex align-items-center justify-content-center p-2"
         aria-hidden="true"
       >
-        Add to your list
+        {favoriteStatus ? 'Remove from ' : 'Add to your '}
+        list
         <FontAwesomeIcon icon={faHeart} className={`ms-2 fs-4 ${favoriteStatus ? 'text-danger' : 'text-secondary'}`} />
       </div>
     </div>
