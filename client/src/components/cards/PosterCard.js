@@ -10,13 +10,13 @@ function PosterCard({ movie }) {
   const [favoriteStatus, setFavoriteStatus] = useState(false);
 
   useEffect(() => {
-    const findFavorite = favorites.find((el) => el.imdbID === movie.imdbID);
+    const findFavorite = favorites.find((el) => el.imdbID === movie.imdbID && el.user === user);
     if (findFavorite) {
       setFavoriteStatus(true);
     } else {
       setFavoriteStatus(false);
     }
-  }, []);
+  }, [favorites]);
 
   async function handleFavorites() {
     const movieInfo = {
