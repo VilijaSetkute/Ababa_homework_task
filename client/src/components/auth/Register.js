@@ -33,13 +33,13 @@ function Register({ setAuthMessage }) {
       />
       <input
         ref={regPass}
-        type="text"
+        type="password"
         className="p-2 my-1 rounded-pill border-0 text-center"
         placeholder="enter password (min 8 symbols)"
       />
       <input
         ref={regPassRepeat}
-        type="text"
+        type="password"
         className="p-2 my-1 rounded-pill border-0 text-center"
         placeholder="repeat password"
       />

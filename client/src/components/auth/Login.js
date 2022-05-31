@@ -36,7 +36,7 @@ function Login({ setAuthMessage }) {
       />
       <input
         ref={logPass}
-        type="text"
+        type="password"
         className="p-2 my-1 rounded-pill border-0 text-center"
         placeholder="enter your password"
       />
