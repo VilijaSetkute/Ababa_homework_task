@@ -23,7 +23,7 @@ router.post('/movie-search', searchController)
 router.get('/recommended-movies', recommendationController)
 
 // -- mongo database
-router.get('/get-all-favorites', getFavoritesController)
+router.post('/get-all-favorites', getFavoritesController)
 router.post('/handle-favorites', handleFavoritesController)
 
 // -- user authentication
