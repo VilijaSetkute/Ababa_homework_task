@@ -16,6 +16,8 @@ function Toolbar() {
     setUser(null);
     setAuthOption('');
     nav('/');
+    setUser(null);
+    localStorage.removeItem('stayLoggedIn');
   }
 
   return (
@@ -25,7 +27,7 @@ function Toolbar() {
         <div className="toolbar d-flex justify-content-between align-items-center">
           <div className="d-flex p-2 text-white align-items-center">
             <Link to="/your-movies">Your movies</Link>
-            <Link to="/vilija-recommends">Recommends</Link>
+            <Link to="/vilija-recommends">Recommended</Link>
             <Link to="/search"><FontAwesomeIcon icon={faMagnifyingGlass} className="my-1 fs-4 pointer" /></Link>
           </div>
           <div className="d-flex p-2 text-white align-items-center">
@@ -56,7 +58,7 @@ function Toolbar() {
                         >
                           <Link to="/search">Search movie</Link>
                           <Link to="/your-movies">Your movies</Link>
-                          <Link to="/vilija-recommends">Recommended movies</Link>
+                          <Link to="/vilija-recommends">Recommended</Link>
                           <div className="text-danger logout" onClick={logOut} aria-hidden="true">
                             Logout
                           </div>
