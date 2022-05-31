@@ -17,18 +17,18 @@
     overflow-y: auto;
 }
 
-.content ::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 5px;
 }
-.content ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+::-webkit-scrollbar-track {
+    background: rgb(47, 4, 4);
 }
-.content ::-webkit-scrollbar-thumb {
-    background: #888;
+::-webkit-scrollbar-thumb {
+    background: rgb(130,19,19);
     border-radius: 5px;
 }
-.content ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(47, 4, 4);
 }
 
 .font-hand {
