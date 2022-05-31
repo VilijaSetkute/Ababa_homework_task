@@ -1,0 +1,5 @@
+.content-search {
+    height: calc(100vh - 64px - 70px);
+    color: #e1e1e1;
+    overflow-y: auto;
+}

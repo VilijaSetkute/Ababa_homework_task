@@ -1,0 +1,18 @@
+.start {
+    width: 100vw;
+    height: 100vh;
+}
+
+.start img {
+    width: 400px;
+}
+
+@media screen and (max-width: 400px){
+    .start img {
+        width: 100vw;
+    }
+}
+
+.font-hand {
+    font-family: 'Gochi Hand', cursive;
+}
