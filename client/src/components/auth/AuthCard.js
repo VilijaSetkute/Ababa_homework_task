@@ -1,25 +1,24 @@
-import React, {useContext, useState} from 'react';
-import './styles.css'
-import Login from './Login'
-import Register from "./Register";
-import mainContext from "../../context/mainContext";
+import React, { useContext, useState } from 'react';
+import './styles.css';
+import Login from './Login';
+import Register from './Register';
+import mainContext from '../../context/mainContext';
 
-const AuthCard = () => {
+function AuthCard() {
+  const { authOption } = useContext(mainContext);
 
-    const {authOption} = useContext(mainContext)
+  const [authMessage, setAuthMessage] = useState('');
 
-    const [authMessage, setAuthMessage] = useState('')
+  return (
+    <div className="position-absolute auth-card">
 
-    return (
-        <div className='position-absolute auth-card'>
-
-            <div className='w-100'>
-                {authMessage && <div className='auth-message'>{authMessage}</div>}
-                {authOption === 'login' && <Login setAuthMessage={setAuthMessage}/>}
-                {authOption === 'register' && <Register setAuthMessage={setAuthMessage}/>}
-            </div>
-        </div>
-    );
-};
+      <div className="w-100">
+        {authMessage && <div className="auth-message">{authMessage}</div>}
+        {authOption === 'login' && <Login setAuthMessage={setAuthMessage} />}
+        {authOption === 'register' && <Register setAuthMessage={setAuthMessage} />}
+      </div>
+    </div>
+  );
+}
 
 export default AuthCard;
