@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const favoritesSchema = new Schema({
+    user: {
+        type: String,
+        required: true
+    },
     Title: {
         type: String,
         required: true

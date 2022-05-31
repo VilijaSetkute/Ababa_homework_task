@@ -5,14 +5,19 @@ module.exports = {
     registerController: async (req, res) => {
         const {email, pass} = req.body
         try {
-            const hash = await bcrypt.hash(pass, 10)
-            const user = await new userSchema({
-                email: email.toLowerCase(),
-                pass: hash
-            })
-            await user.save()
-            console.log('user', user.email, 'registered')
-            res.send({success: true, message: "Registration completed. Now you can login."})
+            const findUser = await userSchema.find({email})
+            if (!findUser) {
+                const hash = await bcrypt.hash(pass, 10)
+                const user = await new userSchema({
+                    email: email.toLowerCase(),
+                    pass: hash
+                })
+                await user.save()
+                console.log('user', user.email, 'registered')
+                res.send({success: true, message: "Registration completed. Now you can login."})
+            } else {
+                res.send({success: false, message: "User already exists"})
+            }
         } catch (err) {
             console.log(err)
         }

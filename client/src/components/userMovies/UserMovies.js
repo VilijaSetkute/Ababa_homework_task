@@ -9,12 +9,12 @@ import http from '../../plugins/http';
 import mainContext from '../../context/mainContext';
 
 function UserMovies() {
-  const { favorites, setFavorites } = useContext(mainContext);
+  const { user, favorites, setFavorites } = useContext(mainContext);
   const nav = useNavigate();
 
   useEffect(() => {
     async function getFavoriteMovies() {
-      const data = await http.get('/get-all-favorites');
+      const data = await http.post('/get-all-favorites', { user });
       if (data.success) {
         setFavorites(data.movies);
       }
@@ -30,7 +30,8 @@ function UserMovies() {
           {favorites.length
             ? (
               <div className="d-flex flex-wrap justify-content-center align-items-center">
-                {favorites.map((x, i) => <PosterCard key={x.imdbID} imdbID={x.imdbID} movie={x} />)}
+                {favorites.flatMap((x, i) => x.user === user
+                  && <PosterCard key={x.imdbID} imdbID={x.imdbID} movie={x} />)}
               </div>
             )
             : (

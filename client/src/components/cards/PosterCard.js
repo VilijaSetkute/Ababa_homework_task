@@ -6,7 +6,7 @@ import http from '../../plugins/http';
 import mainContext from '../../context/mainContext';
 
 function PosterCard({ movie }) {
-  const { favorites, setFavorites } = useContext(mainContext);
+  const { user, favorites, setFavorites } = useContext(mainContext);
   const [favoriteStatus, setFavoriteStatus] = useState(false);
 
   useEffect(() => {
@@ -20,6 +20,7 @@ function PosterCard({ movie }) {
 
   async function handleFavorites() {
     const movieInfo = {
+      user,
       Title: movie.Title,
       Year: movie.Year,
       imdbID: movie.imdbID,

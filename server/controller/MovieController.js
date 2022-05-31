@@ -1,6 +1,8 @@
 const favoritesSchema = require('../models/mongoFavoritesSchema')
 const recommendedSchema = require('../models/mongoRecommendedSchema')
+const userSchema = require('../models/userSchema')
 const fetch = require("node-fetch");
+const movieListToUpload = require('../assests/recommendedMovies.json')
 
 module.exports = {
     searchController: (req, res) => {
@@ -42,23 +44,33 @@ module.exports = {
         }
     },
     recommendationController: async (req, res) => {
+        for (const movie of movieListToUpload) {
+            const existsInDB = await recommendedSchema.findOne({imdbID: movie.imdbID})
+            if (!existsInDB) {
+                const movieToAdd = new recommendedSchema(movie)
+                movieToAdd.save()
+                console.log(`${movie.imdbID} added to Mongo DB`);
+            }
+        }
         const allRecommended = await recommendedSchema.find()
         res.send({success: true, movies: allRecommended})
     },
     getFavoritesController: async (req, res) => {
-        const allFavorites = await favoritesSchema.find()
+        const {user} = req.body
+        const allFavorites = await favoritesSchema.find({user: user})
         res.send({success: true, movies: allFavorites})
     },
     handleFavoritesController: async (req, res) => {
-        const {Title, Year, imdbID, Type, Poster} = req.body
+        const {user, Title, Year, imdbID, Type, Poster} = req.body
         try {
-            const findMovie = await favoritesSchema.findOne({imdbID: imdbID})
+            const findMovie = await favoritesSchema.findOne({imdbID: imdbID, user: user})
             if (findMovie) {
-                await favoritesSchema.findOneAndDelete({imdbID: imdbID})
+                await favoritesSchema.findOneAndDelete({imdbID: imdbID, user: user})
                 const updatedFavorites = await favoritesSchema.find()
                 res.send({success: true, movies: updatedFavorites, message: "Successfully removed from Favorites"})
             } else {
                 const newFavorite = new favoritesSchema({
+                    user: user,
                     Title: Title,
                     Year: Year,
                     imdbID: imdbID,

@@ -30,7 +30,7 @@ app.use(
 );
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.setHeader("Access-Control-Allow-Origin", process.env.CORS_ORIGIN);
     res.setHeader(
         "Access-Control-Allow-Methods",
         "GET, POST, OPTIONS, PUT, PATCH, DELETE"
@@ -43,7 +43,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(cors({origin: "http://localhost:3000", credentials: true}));
+app.use(cors({origin: process.env.CORS_ORIGIN, credentials: true}));
 app.use(express.json());
 app.use("/", mainRoute);
 
