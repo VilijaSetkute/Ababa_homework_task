@@ -36,7 +36,11 @@ function PosterCard({ movie }) {
   return (
     <div className="image-container m-3 ">
       <div>
-        <img src={movie.Poster} alt="poster" />
+        <a href={`https://www.imdb.com/title/${movie.imdbID}/?ref_=nv_sr_srsg_0`}
+           target='_blank' rel='noreferrer'
+        >
+          <img src={movie.Poster} alt="poster" />
+        </a>
       </div>
       <div
         onClick={handleFavorites}
