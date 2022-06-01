@@ -6,7 +6,7 @@ module.exports = {
         const {email, pass} = req.body
         try {
             const findUser = await userSchema.find({email})
-            if (!findUser) {
+            if (findUser.length === 0) {
                 const hash = await bcrypt.hash(pass, 10)
                 const user = await new userSchema({
                     email: email.toLowerCase(),
@@ -14,7 +14,7 @@ module.exports = {
                 })
                 await user.save()
                 console.log('user', user.email, 'registered')
-                res.send({success: true, message: "Registration completed. Now you can login."})
+                res.send({success: true, message: "Registration completed. You can login now"})
             } else {
                 res.send({success: false, message: "User already exists"})
             }
