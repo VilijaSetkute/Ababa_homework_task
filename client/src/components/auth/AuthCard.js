@@ -7,13 +7,18 @@ import mainContext from '../../context/mainContext';
 function AuthCard() {
   const { authOption } = useContext(mainContext);
 
-  const [authMessage, setAuthMessage] = useState('');
+  const [authMessage, setAuthMessage] = useState(null);
 
   return (
     <div className="position-absolute auth-card">
 
       <div className="w-100">
-        {authMessage && <div className="auth-message">{authMessage}</div>}
+        {authMessage
+        && (
+        <div className={`auth-message ${authMessage.success ? 'text-success' : 'text-danger'}`}>
+          {authMessage.message}
+        </div>
+        )}
         {authOption === 'login' && <Login setAuthMessage={setAuthMessage} />}
         {authOption === 'register' && <Register setAuthMessage={setAuthMessage} />}
       </div>

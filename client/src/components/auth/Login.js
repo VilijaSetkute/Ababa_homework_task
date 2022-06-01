@@ -18,11 +18,12 @@ function Login({ setAuthMessage }) {
     };
     const data = await http.post('/login', loginInfo);
     if (data.success) {
+      setAuthMessage(null);
       setUser(data.user);
       nav('/search');
       localStorage.setItem('stayLoggedIn', 'true');
     } else {
-      setAuthMessage(data.message);
+      setAuthMessage(data);
     }
   }
 
