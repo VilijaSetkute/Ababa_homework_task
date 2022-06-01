@@ -16,11 +16,9 @@ function Register({ setAuthMessage }) {
     };
     const data = await http.post('/register', registerInfo);
     if (data.success) {
-      setAuthMessage('');
       setAuthOption('login');
-    } else {
-      setAuthMessage(data.message);
     }
+    setAuthMessage(data);
   }
 
   return (

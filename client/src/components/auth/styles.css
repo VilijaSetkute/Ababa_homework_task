@@ -34,7 +34,7 @@
 
 .auth-message {
     text-align: center;
-    color: rgb(220,53,69);
+    /*color: rgb(220,53,69);*/
     font-weight: bold;
     font-size: 18px;
     border-radius: 100px;
