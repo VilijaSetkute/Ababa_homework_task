@@ -4,7 +4,7 @@ This project has both front and back.
 
 Front was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Back is prepared with Node.js. Node.js version used v16.13.0
+Back is prepared with Node.js v16.13.0
 
 #### Technical task
 
@@ -19,11 +19,11 @@ You can check fully functioning project app here: [https://abmovies.minfra.eu/](
 
 Project guide:
 1. User must register and login in order to see content. Upon login user can choose if wants to stay logged in. 
-2. After successfull login user is redirected to movied search page. Type in movie title or words in search input and click enter to retrieve search results.
+2. After successful login user is redirected to movies search page. Type in movie title or words in search input and click enter to retrieve search results.
 3. User can add/remove any displayed result to favorites ('Your movies')
 4. On single movie card click a separate tab will be opened redirecting to specific movie IMDB page.
 5. There is an recommended page, where movie object is retrieved based on prepared list placed in server folder.
-6. User can loggout and logged in status will be cleared.
+6. User can logout and logged in status will be cleared.
 
 ## Prerequisites for BACK (server) setup
 
@@ -42,8 +42,8 @@ SESSION_KEY=<UNIQUE STRING OF CHARCTERS>
 CORS_ORIGIN=http://localhost:3000
 ```
 
-* PORT. By default server is running on port 4000: `http://localhost:4000`. If running on different port specity it in .env file by providing PORT value. 
-* MOVIE DB API KEY. Yuu will need and API key for movie database: `http://www.omdbapi.com/?apikey=<KEY>&s=`. After "&s=" a search value is included in MovieController.js. This API returns an array of objects. 
+* PORT. By default server is running on port 4000: `http://localhost:4000`. If running on different port specify it in .env file by providing PORT value. 
+* MOVIE DB API KEY. You will need and API key for movie database: `http://www.omdbapi.com/?apikey=<KEY>&s=`. After "&s=" a search value is included in MovieController.js. This API returns an array of objects. 
 Object schema (all keys are required): 
   `{
     Title: <string>, 
@@ -68,11 +68,11 @@ npm run start
 
 ## Prerequisites for FRONT (client) setup
 
-Before starting the prject, update server port number if it is different than 4000. File to update `client/src/plugins/http.js`.
+Before starting the project, update server port number if it is different than 4000. File to update `client/src/plugins/http.js`.
 
 In the project directory, you can:
 
-### Start a client in dvelopement mode
+### Start a client in development mode
 
 ```diff
 npm start
