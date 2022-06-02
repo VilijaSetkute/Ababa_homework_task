@@ -58,7 +58,7 @@ Object schema (all keys are required):
 
 #### 4. update recommended movie list JSON file (optional)
 
-a list for `recommended page` is already provided in [/server/assets/recommendedMovies.json](/server/assets/recommendedMovies.json) file. You can replace file with your own following `mongoRecommendedSchema`.
+a list for `recommended page` is already provided in [/server/](/server/) file. You can replace file with your own following `mongoRecommendedSchema`.
 
 #### To start a server run
 
