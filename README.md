@@ -68,7 +68,7 @@ npm run start
 
 ## Prerequisites for FRONT (client) setup
 
-Before starting the project, update server port number if it is different than 4000. File to update `client/src/plugins/http.js`.
+Before starting the project, update server port number if it is different than 4000. File to update [/client/src/plugins/http.js](/client/src/plugins/http.js).
 
 In the project directory, you can:
 
